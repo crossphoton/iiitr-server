@@ -9,8 +9,6 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-var db *gorm.DB
-
 // Handler handles http requests
 func Handler(r *mux.Router, database *gorm.DB) {
 	db = database

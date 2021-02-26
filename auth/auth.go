@@ -5,8 +5,6 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-var db *gorm.DB
-
 // Handler for handling auth
 func Handler(r *mux.Router, database *gorm.DB) {
 
