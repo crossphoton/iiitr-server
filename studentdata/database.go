@@ -28,7 +28,4 @@ func dbInit() {
 		log.Fatal(err)
 		log.Fatal("DB Error")
 	}
-
-	db.AutoMigrate(&Student{})
-	db.AutoMigrate(&AIMSAcademicData{})
 }

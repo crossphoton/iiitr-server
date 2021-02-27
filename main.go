@@ -12,6 +12,7 @@ import (
 	"example.com/studentdata"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
 var db *gorm.DB
@@ -45,7 +46,7 @@ func main() {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<a href=\"/auth/google\">Login</a>")
+	http.Redirect(w, r, "https://github.com/crossphoton/IIITR-SERVER", http.StatusTemporaryRedirect)
 }
 
 func dbInit() {
@@ -57,6 +58,6 @@ func dbInit() {
 		log.Fatal("DB Error")
 	}
 
-	db.AutoMigrate(&studentdata.Student{})
+	db.AutoMigrate(&auth.Student{})
 	db.AutoMigrate(&studentdata.AIMSAcademicData{})
 }

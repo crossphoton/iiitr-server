@@ -9,7 +9,6 @@ import (
 	"os"
 	"strings"
 
-	"example.com/studentdata"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 )
@@ -75,7 +74,7 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err.Error())
 	}
 
-	stu := studentdata.Student{
+	stu := Student{
 		Name:         data["name"].(string),
 		Email:        data["email"].(string),
 		Rollnumber:   strings.Split(data["email"].(string), "@")[0],
