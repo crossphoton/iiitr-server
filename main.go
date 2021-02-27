@@ -40,7 +40,7 @@ func main() {
 	dbInit()
 
 	fmt.Println("Starting Up server on port " + os.Getenv("PORT"))
-	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), requestHandler()))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), requestHandler()))
 
 }
 
