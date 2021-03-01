@@ -2,6 +2,7 @@ package studentdata
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -16,21 +17,24 @@ func Handler(r *mux.Router, database *gorm.DB) {
 }
 
 func updateData(w http.ResponseWriter, r *http.Request) {
-	var receivedData map[string]interface{}
+	var body map[string]interface{}
 
-	json.NewDecoder(r.Body).Decode(&receivedData)
+	json.NewDecoder(r.Body).Decode(&body)
 
-	lfl, err := json.Marshal(receivedData["data"].(map[string]interface{}))
-
+	b, err := json.Marshal(body["data"].([]interface{}))
+	receivedData := string(b)
 	if err != nil {
 		log.Println(err)
+		http.Error(w, "Invalid Input", 400)
 		return
 	}
 
 	AIMSdata := AIMSAcademicData{
-		Email: receivedData["email"].(string),
-		Data:  string(lfl),
+		Email: body["email"].(string),
+		Data:  receivedData,
 	}
 
 	saveData(AIMSdata)
+
+	fmt.Fprint(w, "OK")
 }
