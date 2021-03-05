@@ -17,9 +17,20 @@ func Handler(r *mux.Router, database *gorm.DB) {
 }
 
 func updateData(w http.ResponseWriter, r *http.Request) {
-	var body map[string]interface{}
+	token, err := r.Cookie("token")
+	if err != nil {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
 
+	var body map[string]interface{}
 	json.NewDecoder(r.Body).Decode(&body)
+
+	tokenStatus := verifyJWT(token.Value, body["email"].(string))
+	if tokenStatus != true {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
 
 	b, err := json.Marshal(body["data"].([]interface{}))
 	receivedData := string(b)

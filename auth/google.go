@@ -7,8 +7,10 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
+	"strconv"
+	"time"
 
+	"github.com/thanhpk/randstr"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 )
@@ -25,7 +27,7 @@ var (
 		Endpoint: google.Endpoint,
 	}
 
-	state = os.Getenv("OAUTH_STATE") // TODO: Randomize it
+	state = randstr.String(10)
 )
 
 func googleOAuthRedirect(w http.ResponseWriter, r *http.Request) {
@@ -37,7 +39,7 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 
 	if r.FormValue("state") != state {
 		fmt.Println("state invalid")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect) //  TODO: Improve
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
@@ -45,7 +47,7 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		fmt.Println("couldn't get token")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect) //  TODO: Improve
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
@@ -53,7 +55,7 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		fmt.Println("couldn't get")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect) //  TODO: Improve
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
@@ -62,7 +64,7 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		fmt.Println("deserializing error")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect) //  TODO: Improve
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
@@ -74,17 +76,21 @@ func googleOAuthCallback(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err.Error())
 	}
 
-	stu := Student{
-		Name:         data["name"].(string),
-		Email:        data["email"].(string),
-		Rollnumber:   strings.Split(data["email"].(string), "@")[0],
-		AccessToken:  token.AccessToken,
-		RefreshToken: token.RefreshToken,
-		Picture:      data["picture"].(string),
+	jwtToken, err := (saveUser(data, token))
+
+	if err != nil {
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+		return
 	}
 
-	saveUser(stu)
-
-	fmt.Fprintf(w, "Response: %s", content)
-
+	dev, _ := strconv.ParseBool(os.Getenv("dev"))
+	cookie := http.Cookie{Name: "token",
+		Value:    jwtToken,
+		Path:     "/",
+		Expires:  time.Now().AddDate(10, 0, 0),
+		Secure:   !dev,
+		HttpOnly: true,
+	}
+	http.SetCookie(w, &cookie)
+	fmt.Fprint(w, "Login successful!! You can close this tab now.")
 }

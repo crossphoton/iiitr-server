@@ -46,7 +46,7 @@ func main() {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://github.com/crossphoton/IIITR-SERVER", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "https://www.github.com/iiitr-services", http.StatusTemporaryRedirect)
 }
 
 func dbInit() {
