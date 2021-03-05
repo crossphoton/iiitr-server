@@ -20,6 +20,7 @@ func updateData(w http.ResponseWriter, r *http.Request) {
 	token, err := r.Cookie("token")
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
+		fmt.Fprint(w, "Unauthorized")
 		return
 	}
 
@@ -29,6 +30,7 @@ func updateData(w http.ResponseWriter, r *http.Request) {
 	tokenStatus := verifyJWT(token.Value, body["email"].(string))
 	if tokenStatus != true {
 		w.WriteHeader(http.StatusUnauthorized)
+		fmt.Fprint(w, "Unauthorized")
 		return
 	}
 
