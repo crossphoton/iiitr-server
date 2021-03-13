@@ -8,9 +8,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"example.com/auth"
-	"example.com/studentdata"
 	"github.com/gorilla/mux"
+	"github.com/iiitr-services/auth"
+	"github.com/iiitr-services/studentdata"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
