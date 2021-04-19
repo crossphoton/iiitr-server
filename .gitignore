@@ -19,3 +19,4 @@ server
 cockroach-data/
 .env
 cc-ca.crt
+.vscode

@@ -1,3 +1,11 @@
+/*
+This is the package for the main Server of the services. Services are treated as extensions to the server.
+
+The SERVER expects the following environment variables to be present
+	- PORT 		- Port to serve on
+	- DB_URL	- URL of a Postgres protocol supporting database
+
+*/
 package main
 
 import (
@@ -18,6 +26,7 @@ import (
 var db *gorm.DB
 var err error
 
+// requestHandler make subrouters for extensions
 func requestHandler() *mux.Router {
 	handler := mux.NewRouter()
 
@@ -29,7 +38,7 @@ func requestHandler() *mux.Router {
 
 func main() {
 
-	c := make(chan os.Signal, 1)
+	c := make(chan os.Signal, 1) /* Just a fun thing to do */
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-c
@@ -45,10 +54,12 @@ func main() {
 
 }
 
+// Home serves the homepage of the server
 func home(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://www.github.com/iiitr-services", http.StatusTemporaryRedirect)
+	fmt.Fprintln(w, "This is home. Here is the <a href=\"https://www.github.com/iiitr-services\">Github</a> url for consideration.")
 }
 
+// dbInit initializes the database
 func dbInit() {
 	addr := os.Getenv("DB_URL")
 	db, err = gorm.Open("postgres", addr)
