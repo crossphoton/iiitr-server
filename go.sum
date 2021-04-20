@@ -114,8 +114,12 @@ github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/iiitr-services/auth v1.0.1 h1:GnvEq7Fg2XKWBmpTsCq1SAiQY3B20ZDeg89z7F/3zss=
 github.com/iiitr-services/auth v1.0.1/go.mod h1:Q1BwcSY0jAbEoIAkdMbCp6zIaR1RuiYiwwmFepe9mBI=
+github.com/iiitr-services/auth v1.0.2 h1:FXOwmJmWgppjdxu2sHOiy4EoRoe09LKozevGuyItg1g=
+github.com/iiitr-services/auth v1.0.2/go.mod h1:Q1BwcSY0jAbEoIAkdMbCp6zIaR1RuiYiwwmFepe9mBI=
 github.com/iiitr-services/studentdata v1.0.1 h1:dNcCc488ZX9bAHFiCl8awL1aykvoFR94msMd7bEbUtU=
 github.com/iiitr-services/studentdata v1.0.1/go.mod h1:THsUE3u5rEvsL6B0OT8por5iNseE7Mbu3fqteRtu+/0=
+github.com/iiitr-services/studentdata v1.0.2 h1:VBSb0ECFWpKJSm/iJTW5OEAnSgTSQomdPNofClKA3cg=
+github.com/iiitr-services/studentdata v1.0.2/go.mod h1:rpQ/BjBNCa5yOCOj/3gUo/iQJU2sQkbKZG1DEwOWqWM=
 github.com/jinzhu/gorm v1.9.16 h1:+IyIjPEABKRpsu/F8OvDPy9fyQlgsg2luMV2ZIH5i5o=
 github.com/jinzhu/gorm v1.9.16/go.mod h1:G3LB3wezTOWM2ITLzPxEXgSkOXAntiLHS7UdBefADcs=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
