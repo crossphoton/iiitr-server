@@ -56,7 +56,7 @@ func main() {
 
 // Home serves the homepage of the server
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "This is home. Here is the <a href=\"https://www.github.com/iiitr-services\">Github</a> url for consideration.")
+	fmt.Fprintln(w, "This is home. Consider visiting https://www.github.com/iiitr-services/Server and give a star.")
 }
 
 // dbInit initializes the database
