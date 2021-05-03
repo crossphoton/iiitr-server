@@ -15,6 +15,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/iiitr-services/auth"
@@ -49,14 +50,23 @@ func main() {
 
 	dbInit()
 
+	handler := requestHandler()
+
+	server := http.Server{
+		Addr:         ":" + os.Getenv("PORT"),
+		Handler:      handler,
+		WriteTimeout: time.Second * 5,
+	}
+
 	fmt.Println("Starting Up server on port " + os.Getenv("PORT"))
-	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), requestHandler()))
+	log.Fatal(server.ListenAndServe())
 
 }
 
 // Home serves the homepage of the server
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "This is home. Consider visiting https://www.github.com/iiitr-services/Server and give a star.")
+	w.Header().Set("Content-type", "text/html")
+	fmt.Fprintln(w, "This is home. Consider visiting <a target=\"_blank\" href=\"https://www.github.com/iiitr-services/Server\">here</a> and give a star.")
 }
 
 // dbInit initializes the database
