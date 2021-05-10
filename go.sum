@@ -120,8 +120,9 @@ github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB7
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
-github.com/iiitr-services/auth v1.0.2 h1:FXOwmJmWgppjdxu2sHOiy4EoRoe09LKozevGuyItg1g=
 github.com/iiitr-services/auth v1.0.2/go.mod h1:Q1BwcSY0jAbEoIAkdMbCp6zIaR1RuiYiwwmFepe9mBI=
+github.com/iiitr-services/auth v1.0.3 h1:mBX4POhgDPnpEqa9VEnq7TXcXPKwvEyZya8A0nF4xvM=
+github.com/iiitr-services/auth v1.0.3/go.mod h1:Q1BwcSY0jAbEoIAkdMbCp6zIaR1RuiYiwwmFepe9mBI=
 github.com/iiitr-services/studentdata v1.0.4 h1:34/EvMn76GZq1aqbAMqbR8ajhLU6BoqWKQCDJPhhCuM=
 github.com/iiitr-services/studentdata v1.0.4/go.mod h1:/54uYUMlLq2Iv85fKqOxSigjAh0F1ySLNbjH/ItmJyc=
 github.com/jackc/chunkreader v1.0.0 h1:4s39bBR8ByfqH+DKm8rQA3E1LHZWB9XWcrz8fqaZbe0=
