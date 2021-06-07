@@ -1,4 +1,4 @@
-![build](https://github.com/iiitr-services/IIITR-Server/actions/workflows/go.yml/badge.svg)
+![build](https://github.com/crossphoton/iiitr-server/actions/workflows/go.yml/badge.svg)
 # Server for the Services for the Institute
 
 This is the package for the main Server of the services. Services are treated as extensions to the server.
