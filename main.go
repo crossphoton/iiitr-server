@@ -17,9 +17,9 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/crossphoton/iiitr-server/auth"
+	"github.com/crossphoton/iiitr-server/studentdata"
 	"github.com/gorilla/mux"
-	"github.com/iiitr-services/auth"
-	"github.com/iiitr-services/studentdata"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
@@ -66,7 +66,7 @@ func main() {
 // Home serves the homepage of the server
 func home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "text/html")
-	fmt.Fprintln(w, "This is home. Consider visiting <a target=\"_blank\" href=\"https://www.github.com/iiitr-services/Server\">here</a> and give a star.")
+	fmt.Fprintln(w, "This is home. Consider visiting <a target=\"_blank\" href=\"https://www.github.com/crossphoton/iiitr-server\">here</a> and give a star.")
 }
 
 // dbInit initializes the database
