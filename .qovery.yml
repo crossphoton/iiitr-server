@@ -1,0 +1,11 @@
+---
+application:
+  name: "iiitr-server"
+  project: "test2"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-iiitr-server"
+  routes:
+  - application_name: "iiitr-server"
+    paths:
+    - "/*"
