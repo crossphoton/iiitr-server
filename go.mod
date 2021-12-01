@@ -8,5 +8,5 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/thanhpk/randstr v1.0.4
 	golang.org/x/oauth2 v0.0.0-20210514164344-f6687ab2804c
-	gorm.io/datatypes v1.0.3
+	gorm.io/datatypes v1.0.4
 )
