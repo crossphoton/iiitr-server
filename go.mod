@@ -8,7 +8,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/jinzhu/gorm v1.9.16
 	github.com/lib/pq v1.10.2 // indirect
-	github.com/thanhpk/randstr v1.0.4
+	github.com/thanhpk/randstr v1.0.6
 	golang.org/x/oauth2 v0.24.0
 	gorm.io/datatypes v1.2.5
 )
