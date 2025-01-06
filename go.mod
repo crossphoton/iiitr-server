@@ -9,6 +9,6 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/lib/pq v1.10.2 // indirect
 	github.com/thanhpk/randstr v1.0.6
-	golang.org/x/oauth2 v0.24.0
+	golang.org/x/oauth2 v0.25.0
 	gorm.io/datatypes v1.2.5
 )
